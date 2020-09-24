@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.study.dao.ArticleDao">
+
+<!--    <select id="getArticleTitle" parameterType="String" resultType="Integer">-->
+<!--        select count(id) from article where title = #{title}-->
+<!--    </select>-->
+
+    <insert id="addArticle" parameterType="com.study.bean.TempArticle" keyProperty="id">
+        insert into article(title,typ) values(#{title},#{typ})
+    </insert>
+
+    <select id="getArticle" parameterType="String" resultType="com.study.bean.Article">
+        select * from article where title = #{title}
+    </select>
+</mapper>
