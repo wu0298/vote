@@ -13,8 +13,19 @@
 					alert("用户名或密码不能为空！")
 					return false
 				}
+
+				var name=document.getElementById("username").value;
+				var pwd=document.getElementById("password").value;
+				$.post("${pageContext.request.contextPath}/userLogin",{"username":name,"password":pwd},function(data){
+					if (data.code  == 200){
+						window.location.href='${pageContext.request.contextPath}/admin/index.jsp'
+					}else{
+						var msg=document.getElementById("msg");
+						msg.innerHTML=data.msg;
+						msg.value=data.msg;
+					}
+				});
 			}
-			
 		</script>
 	</head>
 	<body>
@@ -32,10 +43,10 @@
 				</div>
 				<div class="mid03">
 					<div class="head">
-						用户登录 &nbsp;  <img src="img/arrow_down.gif" /> <span style="color: red">${requestScope.msg }</span>
+						用户登录 &nbsp;  <img src="img/arrow_down.gif" /> <span id="msg" style="color: red"></span>
 					</div>
 					<div class="line1"></div>
-					<form action="loginServlet" method="post" onsubmit="return check();">
+					<form>
 						<table>
 							<tr>
 								<td>用户名：</td>
@@ -43,13 +54,13 @@
 							</tr>
 							<tr>
 								<td>密码：</td>
-								<td><input type="password" name="passwrod" id="password" /></td>
+								<td><input type="password" name="password" id="password" /></td>
 							</tr>
 							<tr>
 								<td></td>
 								<td>
 									
-									<input type="submit" value="   登录" style="width:77px; height:32px;border:0;background:url(img/button_login.gif);"  />
+									<input id="btn" name="btn" onclick="check()" type="button" value="   登录" style="width:77px; height:32px;border:0;background:url(img/button_login.gif);"  />
 									
 									<a href="admin/reg.jsp">新用户注册</a>
 								</td>

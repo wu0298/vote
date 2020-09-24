@@ -11,10 +11,10 @@
 		<script type="text/javascript">
 			function checkname() {
 				var name=document.getElementById("username").value;
-			 	$.get("AjaxRegisterServlet",{"user_name":name},function(data){
+			 	$.get("${pageContext.request.contextPath}/getExistsUesr",{"username":name},function(data){
 			 		var msg=document.getElementById("msg");
-			 		msg.innerHTML=data;
-			 		msg.value=data;
+			 		msg.innerHTML=data.msg;
+			 		msg.value=data.msg;
 			 	});
 				
 			}

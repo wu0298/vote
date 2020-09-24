@@ -21,7 +21,7 @@
 						<tr>
 							<td>
 								恭喜：注册成功！
-								<a href="index.jsp">进入投票系统首页>></a>
+								<a href="${pageContext.request.contextPath}/admin/index.jsp">进入投票系统首页>></a>
 							<td>
 							
 						</tr>

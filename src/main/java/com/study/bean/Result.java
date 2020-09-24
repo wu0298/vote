@@ -7,21 +7,21 @@ package com.study.bean;
  */
 public class Result<T> {
     private Integer code;
-    private String message;
+    private String msg;
     private T      data;
 
     public Result() {
     }
 
-    public Result(Integer code, String message, T data) {
+    public Result(Integer code, String msg, T data) {
         this.code = code;
-        this.message = message;
+        this.msg = msg;
         this.data = data;
     }
 
-    public Result(Integer code, String message ) {
+    public Result(Integer code, String msg ) {
         this.code = code;
-        this.message = message;
+        this.msg = msg;
         this.data = null;
     }
 
@@ -33,12 +33,12 @@ public class Result<T> {
         this.code = code;
     }
 
-    public String getMessage() {
-        return message;
+    public String getMsg() {
+        return msg;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setMsg(String msg) {
+        this.msg = msg;
     }
 
     public T getData() {

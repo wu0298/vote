@@ -13,4 +13,8 @@ import org.springframework.stereotype.Repository;
 @Mapper
 public interface UserDao {
     public int registerUser(@Param("username") String username, @Param("password") String password);
+
+    public int getUserByName(@Param("username") String username);
+
+    public int getUserLogin(@Param("username") String username, @Param("password") String password);
 }

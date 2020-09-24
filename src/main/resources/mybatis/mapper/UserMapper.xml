@@ -4,8 +4,16 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.study.dao.UserDao">
 
-    <insert id="registerUser" parameterType="String" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO USER('USERNAME','PASSWORD') VALUES(#{USERNAME},#{PASSWORD})
+    <insert id="registerUser" parameterType="String" keyProperty="id">
+        INSERT INTO user(username,password) VALUES(#{username},#{password})
     </insert>
+
+    <select id="getUserByName" parameterType="String" resultType="Integer">
+        SELECT COUNT(username) FROM user WHERE username = #{username}
+    </select>
+
+    <select id="getUserLogin" parameterType="String" resultType="Integer">
+        SELECT COUNT(id) FROM user WHERE username = #{username} AND password=#{password}
+    </select>
 
 </mapper>

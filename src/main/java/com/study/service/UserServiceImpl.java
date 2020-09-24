@@ -18,4 +18,14 @@ public class UserServiceImpl implements UserService {
     public int registerUser(String username, String password) {
         return userDao.registerUser(username, password);
     }
+
+    @Override
+    public int getUserByName(String username) {
+        return userDao.getUserByName(username);
+    }
+
+    @Override
+    public int getUserLogin(String username, String password) {
+        return userDao.getUserLogin(username,password);
+    }
 }

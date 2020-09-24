@@ -8,5 +8,9 @@ import org.apache.ibatis.annotations.Param;
  * @desc
  */
 public interface UserService {
-    public int registerUser(@Param("username") String username, @Param("password") String password);
+    public int registerUser(String username, String password);
+
+    public int getUserByName(String username);
+
+    public int getUserLogin(String username, String password);
 }
