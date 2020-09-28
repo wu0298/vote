@@ -4,6 +4,9 @@ import com.study.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 /**
  * @author ZIKOR
  * @date 2020/9/24 9:55
@@ -14,6 +17,10 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserDao userDao;
+
+    @Autowired
+    private HttpServletRequest request;
+
     @Override
     public int registerUser(String username, String password) {
         return userDao.registerUser(username, password);
@@ -26,6 +33,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public int getUserLogin(String username, String password) {
-        return userDao.getUserLogin(username,password);
+        HttpSession session = request.getSession();
+        int i = userDao.getUserLogin(username,password);
+        if (i!=0){
+            session.setAttribute("username",username);
+        }
+
+        return i;
     }
 }

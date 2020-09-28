@@ -13,34 +13,40 @@
 	</head>
 	<body>
 		<div class="third">
-				<div class="head">修改投票</div>
+				<div class="head">查看投票</div>
 				<form action="changeSuccessServlet" method="post" onsubmit="return check()">
 					<table style="width: 480px">
 						<tr>
 							<td>投票内容：</td>
-							<td><input type="text" name="title" class="bb" value="${title}" readonly="readonly"/></td>
+							<td>
+<%--								<input type="text" name="title" class="bb" value="${title}" readonly="readonly"/>--%>
+								<label>${title}</label>
+							</td>
 						</tr>
 						<tr>
 							<td>投票类型：</td>
 							<td align="left">
-								<input type="radio" name="type" value="dan" checked="checked">单选
-								<input type="radio" name="type" value="duo">多选
+								<c:choose>
+								<c:when test="${requestScope.typ==0}">
+									<label>单选</label>
+								</c:when>
+								<c:otherwise>
+									<label>多选</label>
+								</c:otherwise>
+								</c:choose>
+<%--								<input type="radio" name="type" value="dan" checked="checked">单选--%>
+<%--								<input type="radio" name="type" value="duo">多选--%>
 							</td>
 						</tr>
 						<tbody id="addTr">
-						<tr>
-							<td>投票选项：</td>
-							<td><input type="text" name="option" class="bb" value="${list[0]}"/></td>
-						</tr>
-						<tr>
-							<td></td>
-							<td><input type="text" name="option" class="bb" value="${list[1]}"/></td>
-						</tr>
-						<c:forEach items="${ylist}"  var="y">
+						<c:forEach items="${list}"  var="y">
 							<tr>
-							<td></td>
-							<td><input type="text" class="bb" name="option" value="${y}"/></td>
-							<td onClick="getDel(this)"><a>删除</a></td>
+							<td>投票选项：</td>
+							<td>
+<%--								<input type="text" class="bb" name="option" value="${y}"/>--%>
+								<label>${y}</label>
+							</td>
+<%--							<td onClick="getDel(this)"><a>删除</a></td>--%>
 							</tr>
 						</c:forEach>
 						

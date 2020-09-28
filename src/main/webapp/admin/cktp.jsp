@@ -18,8 +18,9 @@
 					<td colspan="4">
 						<div class="line3"></div>
 						<p class="p11"><img src="img/vote_icon.gif" /> ${title}</p>
-						<span class="p2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;共有 ${optionNum}个选项，已有${voteNum} 个网友参与了投票。</span>							
-					</td>	
+						<span class="p2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;共有 ${optionNum}个选项，已有${voteNum} 个网友参与了投票。</span>
+<%--						<span class="p2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;共有 ${optionNum}个选项，已有${voteNum} 个网友参与了投票。</span>--%>
+					</td>
 				</tr>
 			</table>
 				<table class="table4">
@@ -57,7 +58,7 @@
 				
 				<tr >
 					<td colspan="4" style="margin-top: 120px;">
-						<img src="img/goback.gif" style="vertical-align:middle"> &nbsp;&nbsp;<a href="admin/tpList.jsp" target="mainframe">返回投票列表</a>
+						<img src="img/goback.gif" style="vertical-align:middle"> &nbsp;&nbsp;<a href="${pageContext.request.contextPath}/loadArticleList?title=&page=1&del=" target="mainframe">返回投票列表</a>
 					</td>
 				</tr>
 			</table>

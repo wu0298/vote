@@ -58,4 +58,13 @@ public class UserController {
             return new Result(400,"用户名或密码错误");
         }
     }
+
+    @RequestMapping("/logout")
+    public String logout(HttpSession session,
+                         HttpServletRequest request){
+        session = request.getSession();
+        session.removeAttribute("username");
+
+        return "login";
+    }
 }

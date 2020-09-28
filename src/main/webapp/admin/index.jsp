@@ -20,29 +20,31 @@
 			<div class="second">
 			
 			
-			<form action="articleListServlet?flag=search"  method="post" target="mainframe">
+			<form action="${pageContext.request.contextPath}/searchArticle"  method="post" target="mainframe">
 				<table class="table1">
 					<tr>
 						<td width="220px">您好，${sessionScope.username}</td>
-						<td width="220px"><a href="exitServlet">注销</a></td>
-						<td width="260px"><img src="img/new.gif" /> <a href="admin/tpList.jsp"  onclick="hi();"  target="mainframe">返回列表</a></td>
+						<td width="220px"><a href="logout">注销</a></td>
+						<td width="260px"><img src="img/new.gif" /> <a href="${pageContext.request.contextPath}/loadArticleList?title=&page=1&del="  onclick="hi();"  target="mainframe">返回列表</a></td>
 						<td width="280px"><img src="img/addnew.gif" /> <a href="admin/addNewtp.jsp" target="mainframe">添加新投票</a></td>
 						<c:if test="${sessionScope.username=='admin'}">
-							<td width="280px"><img src="img/edit.gif" /> <a href="articleListServlet?del=d" onclick="hi();" target="mainframe">维护</a><input type="hidden"  name="hi" id="hi" value="0"></td>
+							<td width="280px"><img src="img/edit.gif" /> <a href="updateArticle" onclick="hi();" target="mainframe">维护</a><input type="hidden"  name="hi" id="hi" value="0"></td>
 						</c:if>
+						<input type="hidden" name="del" value="${del}">
+						<input type="hidden" name="page" value="${page}">
 						<td width="150px"><input name="search"  type="text" style="margin-bottom: 4px;"/></td>
 						<td width="50px"><input type="submit" value=""  style="width:40px; height:23px;border:0;background:url(img/button_search.gif);" /></td>
 						
 					</tr>
 				</table>
-				</form>
+			</form>
 				
 
 			</div>
 			
 			<div class="mid">
 				
-				<iframe src="${pageContext.request.contextPath}/admin/tpList.jsp" width="900" id="win" name="mainframe"    onload="Javascript:SetWinHeight(this)" frameborder="0" scrolling="no" /></iframe>
+				<iframe src="${pageContext.request.contextPath}/loadArticleList?title=&page=1&del=" width="900" id="win" name="mainframe"    onload="Javascript:SetWinHeight(this)" frameborder="0" scrolling="no" /></iframe>
 					
 			</div>
 			

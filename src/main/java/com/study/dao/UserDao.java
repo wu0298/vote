@@ -17,4 +17,6 @@ public interface UserDao {
     public int getUserByName(@Param("username") String username);
 
     public int getUserLogin(@Param("username") String username, @Param("password") String password);
+
+    public int getUserId(@Param("username") String username);
 }

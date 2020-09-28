@@ -11,4 +11,45 @@
                 (#{item},#{articleid})
             </foreach>
     </insert>
+    
+    <select id="getArticleVote" parameterType="int" resultMap="articleResultMap">
+        SELECT a.id,a.title,v.id,v.articleid,v.optionid,v.voterid
+        from article as a INNER JOIN vote as v ON a.id=v.articleid
+        WHERE a.id = #{id}
+    </select>
+    
+    <resultMap id="articleResultMap" type="com.study.bean.ArticleVote">
+        <id property="id" column="id"></id>
+        <result property="title" column="title"></result>
+        <collection property="listVote" ofType="com.study.bean.Vote">
+            <id property="id" column="id"></id>
+            <result property="articleid" column="articleid"></result>
+            <result property="optionid" column="optionid"></result>
+            <result property="voterid" column="voterid"></result>
+        </collection>
+    </resultMap>
+    
+    <select id="findOptionsByArticleId" parameterType="int" resultType="com.study.bean.Options">
+        select * from options where articleid = #{id}
+    </select>
+
+    <select id="findOptionValue" parameterType="int" resultType="String">
+        select optionvalue from options where articleid=#{id}
+    </select>
+
+    <select id="findVoteNum" parameterType="String" resultType="Integer">
+        select count(optionid)  from  options,vote where optionid=options.id and optionvalue=#{optionvalue}
+    </select>
+    
+    <select id="getTitleNum" parameterType="int" resultType="Integer">
+        select COUNT(articleid) from vote where articleid=#{id}
+    </select>
+
+    <select id="getOptionId" parameterType="String" resultType="Integer">
+        select id from options where optionvalue=#{optionvalue}
+    </select>
+
+    <delete id="deleteOption" parameterType="Integer">
+        delete from options  where articleid=#{articleid}
+    </delete>
 </mapper>

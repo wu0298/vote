@@ -2,7 +2,7 @@ spring:
   datasource:
     username: root
     password: qwe123
-    url: jdbc:mysql://8.129.166.53/vote?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
+    url: jdbc:mysql://8.129.166.53:3307/vote2?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
     type: com.alibaba.druid.pool.DruidDataSource
 
 #   执行数据库文件

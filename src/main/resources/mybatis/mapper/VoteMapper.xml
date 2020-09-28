@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.study.dao.VoteDao">
+
+    <!--    <select id="getArticleTitle" parameterType="String" resultType="Integer">-->
+    <!--        select count(id) from article where title = #{title}-->
+    <!--    </select>-->
+
+    <insert id="addVote" parameterType="Integer" keyProperty="id">
+        insert into vote(articleid,optionid,voterid) value(#{articleid},#{optionid},#{voterid})
+    </insert>
+
+    <delete id="deleteVote" parameterType="Integer">
+        delete from vote where articleid=#{articleid}
+    </delete>
+    
+    <select id="isUserVote" parameterType="Integer" resultType="Integer">
+        select COUNT(id)
+        from vote
+        where articleid = #{articleid} AND voterid = #{userid}
+    </select>
+</mapper>

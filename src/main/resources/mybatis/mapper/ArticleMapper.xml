@@ -15,4 +15,32 @@
     <select id="getArticle" parameterType="String" resultType="com.study.bean.Article">
         select * from article where title = #{title}
     </select>
+    
+    <select id="loadArticleList" parameterType="String" resultType="java.util.HashMap">
+        select  article.id,title,COUNT(articleid) as num FROM article,options where article.id=articleid
+        <if test="title != null and title !=''">
+            and  title like concat('%',#{title},'%')
+        </if>
+        GROUP BY articleid
+        limit #{page},2
+    </select>
+
+    <select id="loadArticleList2" parameterType="String" resultType="java.util.HashMap">
+        SELECT title,COUNT(DISTINCT  voterid) as num
+        from article left join vote on article.id=vote.articleid
+        <if test="title != null and title !=''">
+            and  title like concat('%',#{title},'%')
+        </if>
+        GROUP BY     articleid
+        ORDER BY  article.id
+    </select>
+
+    <select id="findType" parameterType="Integer" resultType="Integer">
+        select typ from article where id=#{id}
+    </select>
+
+    <delete id="deleteArticle" parameterType="Integer">
+        delete from article where id=#{id}
+    </delete>
+
 </mapper>

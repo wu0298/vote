@@ -16,4 +16,8 @@
         SELECT COUNT(id) FROM user WHERE username = #{username} AND password=#{password}
     </select>
 
+    <select id="getUserId" parameterType="String" resultType="Integer">
+        select id from user where username=#{username}
+    </select>
+
 </mapper>
