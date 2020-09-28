@@ -21,10 +21,6 @@ public class VoteController {
     @RequestMapping("delVote")
     public String delVote(@RequestParam("id") int id){
         int i = voteService.delVote(id);
-        if (i!=0){
             return "admin/index";
-        }else {
-            return "admin/index";
-        }
     }
 }
