@@ -46,7 +46,7 @@ public class VoteServiceImpl implements VoteService {
         System.out.println(session.getAttribute("username").toString());
         int userid = userDao.getUserId(session.getAttribute("username").toString());
 
-        if (type.equals("0")){
+        if (type.equals("1")){
             String option = String.valueOf(map.get("radio"));
             int optionid = optionDao.getOptionId(option);
             return voteDao.addVote(articleid,optionid,userid);

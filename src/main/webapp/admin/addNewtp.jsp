@@ -52,6 +52,20 @@
 	</body>
 <script>
 
+	$(function() {
+		$("#getStr").click(function() {
+			$str = '';
+			$str += "<tr>";
+			$str += "<td></td>";
+			$str += "<td><input type='text' class='bb' name='option' /></td>";
+			$str += "<td onClick='getDel(this)'><a>删除</a></td>";
+			$str += "</tr>";
+			$("#addTr").append($str);
+			var obj = parent.document.getElementById("win"); // 取得父页面IFrame对象
+			obj.height = window.document.body.scrollHeight + 40; // 调整父页面中IFrame的高度为此页面的高度
+		});
+	});
+
 	function check() {
 		var count = 0;
 		$(".bb").each(function () {

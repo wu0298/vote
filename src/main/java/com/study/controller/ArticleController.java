@@ -72,6 +72,7 @@ public class ArticleController {
         List<Listing> list = articleService.loadArticleList("",1);
         HttpSession session = request.getSession();
 
+        model.addAttribute("page",1);
         session.setAttribute("del","d");
         model.addAttribute("list",list);
 

@@ -26,9 +26,12 @@ public class UserController {
 
     @RequestMapping("/register")
     public String register(@RequestParam("username") String username,
-                           @RequestParam("password") String password){
+                           @RequestParam("password") String password,
+                           HttpServletRequest request){
+        HttpSession session = request.getSession();
         int i = userService.registerUser(username, password);
         if (i != 0){
+            session.setAttribute("username",username);
             return "admin/regS";
         }else{
             return "reg";

@@ -49,7 +49,7 @@
 
 			let map = new Map()
 
-			if (type == 0){
+			if (type == 1){
 				let option=$("input[name=radio]:checked").val()
 				map.set("id",id)
 				map.set("title",title)
@@ -127,7 +127,7 @@
 				<tr>
 					<td width="40px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${count}</td>
 					<td><c:choose>
-							<c:when test="${type==1 }">
+							<c:when test="${type==2 }">
 								<input type="checkbox" name="chbox" class="bb" value="${option}" />
 							</c:when>
 							<c:otherwise>
