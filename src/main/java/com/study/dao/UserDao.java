@@ -19,4 +19,6 @@ public interface UserDao {
     public int getUserLogin(@Param("username") String username, @Param("password") String password);
 
     public int getUserId(@Param("username") String username);
+
+    public int updateUser(@Param("username") String username, @Param("password") String password);
 }

@@ -99,11 +99,20 @@ public class ArticleServiceImpl implements ArticleService {
                 viewlist.add(listing);
             }
         }
+
         return viewlist;
     }
 
     @Override
     public int findType(int id) {
         return articleDao.findType(id);
+    }
+
+    @Override
+    public List<HashMap<String, Object>> heatTitle() {
+
+        List<HashMap<String,Object>> maps = articleDao.heatTitle();
+
+        return maps;
     }
 }

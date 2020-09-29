@@ -5,6 +5,7 @@ import com.study.bean.Listing;
 import com.study.bean.TempArticle;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -21,4 +22,6 @@ public interface ArticleService {
     public List<Listing> loadArticleList(String title,int page);
 
     public int findType(@Param("id") int id);
+
+    public List<HashMap<String,Object>> heatTitle();
 }

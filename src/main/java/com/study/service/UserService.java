@@ -13,4 +13,6 @@ public interface UserService {
     public int getUserByName(String username);
 
     public int getUserLogin(String username, String password);
+
+    public int updateUser(String username, String password);
 }

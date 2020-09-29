@@ -69,4 +69,20 @@ public class UserController {
 
         return "login";
     }
+
+    @RequestMapping("updateUser")
+    @ResponseBody
+    public Result updateUser(@RequestParam("password") String password,
+                             HttpServletRequest request){
+        HttpSession session = request.getSession();
+        String username = session.getAttribute("username").toString();
+        int i = userService.updateUser(username,password);
+
+        if (i > 0){
+            return new Result(200,"修改成功");
+        }else {
+            return new Result(200,"修改失败");
+        }
+
+    }
 }

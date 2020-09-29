@@ -27,7 +27,7 @@
 						<c:choose>
 						<c:when test="${sessionScope.del=='d'}">
 							<a href="delVote?id=${listing.id}" onclick="return confirm('是否确认删除?')">删除</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<a href="updateOption?id=${listing.id}&title=${listing.title}">查看</a>
+<%--							<a href="updateOption?id=${listing.id}&title=${listing.title}">查看</a>--%>
 						</c:when>
 						<c:when test="${listing.vote==true }">
 							<a href="lookVote?title=${listing.title}&id=${listing.id}&optionNum=${listing.optionNum}&voteNum=${listing.voteNum}" class="p3" target="mainframe">已投票</a>
@@ -48,4 +48,6 @@
 			</table>
 		</div>
 	</body>
+<style>
+</style>
 </html>

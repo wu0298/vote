@@ -57,6 +57,8 @@ public class ArticleController {
         }
         List<Listing> list = articleService.loadArticleList(title,page);
 
+        List<HashMap<String,Object>> mapList = articleService.heatTitle();
+
         session.removeAttribute("del");
         session.setAttribute("del",del);
 
@@ -86,7 +88,6 @@ public class ArticleController {
         String del = request.getParameter("del");
         int page = 1;
         List<Listing> list = articleService.loadArticleList(title,page);
-
 
         model.addAttribute("title",title);
         model.addAttribute("page",page);

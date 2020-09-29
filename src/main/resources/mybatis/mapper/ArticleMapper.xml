@@ -42,5 +42,14 @@
     <delete id="deleteArticle" parameterType="Integer">
         delete from article where id=#{id}
     </delete>
+    
+    <select id="heatTitle" resultType="java.util.HashMap">
+        select articleid,title,count(DISTINCT voterid) as peoples
+        from vote,article
+        WHERE article.id = vote.articleid
+        group BY articleid
+        ORDER BY count(DISTINCT voterid) desc
+        LIMIT 0,5
+    </select>
 
 </mapper>

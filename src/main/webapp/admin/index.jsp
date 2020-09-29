@@ -27,6 +27,7 @@
 						<td width="220px"><a href="logout">注销</a></td>
 						<td width="260px"><img src="img/new.gif" /> <a href="${pageContext.request.contextPath}/loadArticleList?title=&page=1&del="  onclick="hi();"  target="mainframe">返回列表</a></td>
 						<td width="280px"><img src="img/addnew.gif" /> <a href="admin/addNewtp.jsp" target="mainframe">添加新投票</a></td>
+						<td width="280px"><img src="img/addnew.gif" /> <a href="admin/updateUser.jsp" target="mainframe">修改密码</a></td>
 						<c:if test="${sessionScope.username=='admin'}">
 							<td width="280px"><img src="img/edit.gif" /> <a href="updateArticle" onclick="hi();" target="mainframe">维护</a><input type="hidden"  name="hi" id="hi" value="0"></td>
 						</c:if>
@@ -53,6 +54,8 @@
 				青软实训 &copy; 版权所有
 			</div>
 			
-		</div>	
+		</div>
+
 	</body>
+
 </html>

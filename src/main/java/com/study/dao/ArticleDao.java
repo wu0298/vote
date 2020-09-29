@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -30,4 +31,6 @@ public interface ArticleDao {
     public int findType(@Param("id") int id);
 
     public int deleteArticle(@Param("id") int id);
+
+    public List<HashMap<String,Object>> heatTitle();
 }
